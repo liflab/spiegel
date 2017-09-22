@@ -15,49 +15,21 @@
     You should have received a copy of the GNU Lesser General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package ca.uqac.lif.spiegel;
+import ca.uqac.lif.spiegel.Condition;
+import ca.uqac.lif.spiegel.ConditionBuilder;
+import ca.uqac.lif.spiegel.DotConditionRenderer;
 
-/**
- * Negation of a condition
- * @author Sylvain Hallé
- */
-public class Not extends Condition
+
+public class ConditionTree 
 {
-	/**
-	 * The condition to negate
-	 */
-	protected Condition m_condition;
-	
-	public Not(Condition condition)
+
+	public static void main(String[] args)
 	{
-		super();
-		m_condition = condition;
-	}
-	
-	/**
-	 * Gets the condition that is negated by this object
-	 * @return The condition
-	 */
-	public Condition getCondition()
-	{
-		return m_condition;
+		ConditionBuilder builder = new ConditionBuilder();
+		DotConditionRenderer dcr = new DotConditionRenderer();
+		Condition c = builder.getCondition(NestedClass.class);
+		String dot_file = dcr.toDot(c);
+		System.out.println(dot_file);
 	}
 
-	@Override
-	public boolean satisfies(ObjectMap map) 
-	{
-		return !m_condition.satisfies(map);
-	}
-
-	@Override
-	public String toString()
-	{
-		return "not (" + m_condition + ")";
-	}
-	
-	@Override
-	public Condition getTypeCondition()
-	{
-		return m_condition.getTypeCondition();
-	}
 }

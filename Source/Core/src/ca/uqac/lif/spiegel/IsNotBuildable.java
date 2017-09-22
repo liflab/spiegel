@@ -18,46 +18,34 @@
 package ca.uqac.lif.spiegel;
 
 /**
- * Negation of a condition
+ * Condition expressing that a specific object cannot be built using
+ * Spiegel. This generally occurs when a class does not implement the
+ * {@link Buildable} interface.
+ * 
  * @author Sylvain Hallé
  */
-public class Not extends Condition
+public class IsNotBuildable extends Condition
 {
 	/**
-	 * The condition to negate
+	 * A reference to the single instance of this class. Since this class
+	 * has no state, all objects can safely refer to this single instance.
 	 */
-	protected Condition m_condition;
+	public static final transient IsNotBuildable instance = new IsNotBuildable();
 	
-	public Not(Condition condition)
+	protected IsNotBuildable()
 	{
 		super();
-		m_condition = condition;
-	}
-	
-	/**
-	 * Gets the condition that is negated by this object
-	 * @return The condition
-	 */
-	public Condition getCondition()
-	{
-		return m_condition;
 	}
 
 	@Override
-	public boolean satisfies(ObjectMap map) 
+	public boolean satisfies(ObjectMap map)
 	{
-		return !m_condition.satisfies(map);
+		return false;
 	}
 
 	@Override
-	public String toString()
+	public Condition getTypeCondition() 
 	{
-		return "not (" + m_condition + ")";
-	}
-	
-	@Override
-	public Condition getTypeCondition()
-	{
-		return m_condition.getTypeCondition();
+		return null;
 	}
 }

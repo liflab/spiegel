@@ -32,9 +32,14 @@ public abstract class Condition
 	/**
 	 * Determines if an object map satisfies the condition
 	 * @param map The map
-	 * @return
+	 * @return {@code true} if the map satisfies the condition, {@code false}
+	 *   otherwise
 	 */
 	public abstract boolean satisfies(ObjectMap map);
 	
+	/**
+	 * Gets the condition specifying the type of this object 
+	 * @return A condition specifying the type of this object
+	 */
 	public abstract Condition getTypeCondition();
 }

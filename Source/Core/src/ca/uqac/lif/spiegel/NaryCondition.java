@@ -37,6 +37,20 @@ public abstract class NaryCondition extends Condition
 		}
 	}
 	
+	public void addCondition(Condition c)
+	{
+		m_conditions.add(c);
+	}
+	
+	/**
+	 * Gets the list of conditions inside this n-ary condition
+	 * @return The list of conditions
+	 */
+	public List<Condition> getConditions()
+	{
+		return m_conditions;
+	}
+	
 	@Override
 	public Condition getTypeCondition()
 	{

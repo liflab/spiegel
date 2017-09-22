@@ -17,47 +17,35 @@
  */
 package ca.uqac.lif.spiegel;
 
-/**
- * Negation of a condition
- * @author Sylvain Hallé
- */
-public class Not extends Condition
+public class InnerFieldCondition extends Condition
 {
-	/**
-	 * The condition to negate
-	 */
-	protected Condition m_condition;
+	protected Condition m_fieldCondition;
 	
-	public Not(Condition condition)
+	protected String m_fieldName;
+	
+	protected Class<?> m_fieldClass;
+	
+	protected final transient IsOfType m_typeCondition;
+	
+	public InnerFieldCondition(String name, Class<?> clazz, Condition condition)
 	{
 		super();
-		m_condition = condition;
-	}
-	
-	/**
-	 * Gets the condition that is negated by this object
-	 * @return The condition
-	 */
-	public Condition getCondition()
-	{
-		return m_condition;
+		m_fieldName = name;
+		m_fieldClass = clazz;
+		m_fieldCondition = condition;
+		m_typeCondition = new IsOfType(m_fieldName, m_fieldClass);
 	}
 
 	@Override
 	public boolean satisfies(ObjectMap map) 
 	{
-		return !m_condition.satisfies(map);
+		return m_fieldCondition.satisfies(map);
 	}
 
 	@Override
-	public String toString()
+	public Condition getTypeCondition() 
 	{
-		return "not (" + m_condition + ")";
+		return m_typeCondition;
 	}
-	
-	@Override
-	public Condition getTypeCondition()
-	{
-		return m_condition.getTypeCondition();
-	}
+
 }

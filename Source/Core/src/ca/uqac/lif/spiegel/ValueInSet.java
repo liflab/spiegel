@@ -39,6 +39,15 @@ public class ValueInSet extends ValueCondition
 			m_values.add(o);
 		}
 	}
+	
+	/**
+	 * Gets the values in the collection
+	 * @return The values
+	 */
+	public Collection<Object> getValues()
+	{
+		return m_values;
+	}
 
 	@Override
 	protected boolean checkCondition(Object o) 
