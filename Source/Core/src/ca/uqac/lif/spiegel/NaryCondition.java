@@ -20,12 +20,31 @@ package ca.uqac.lif.spiegel;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Condition involving a variable number of operands. Logical operators
+ * such as AND and OR are descendants of this abstract class.
+ * @author Sylvain Hallé
+ *
+ */
 public abstract class NaryCondition extends Condition
 {
+	/**
+	 * The list of operands for this condition
+	 */
 	protected List<Condition> m_conditions;
 	
+	/**
+	 * The symbol used to represent this condition when displayed
+	 * textually
+	 */
 	protected String m_symbol;
 	
+	/**
+	 * Creates a new n-ary condition
+	 * @param symbol The symbol used to represent this condition when displayed
+	 *   textually
+	 * @param conditions The list of operands for this condition
+	 */
 	public NaryCondition(String symbol, Condition ... conditions)
 	{
 		super();
@@ -37,16 +56,20 @@ public abstract class NaryCondition extends Condition
 		}
 	}
 	
-	public void addCondition(Condition c)
+	/**
+	 * Adds an operand to this condition
+	 * @param c The new operand to add
+	 */
+	public void addOperand(Condition c)
 	{
 		m_conditions.add(c);
 	}
 	
 	/**
-	 * Gets the list of conditions inside this n-ary condition
-	 * @return The list of conditions
+	 * Gets the list of operands inside this n-ary condition
+	 * @return The list of operands
 	 */
-	public List<Condition> getConditions()
+	public List<Condition> getOperands()
 	{
 		return m_conditions;
 	}

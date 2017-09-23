@@ -19,7 +19,25 @@ package ca.uqac.lif.spiegel;
 
 import java.util.HashMap;
 
-public class ObjectMap extends HashMap<String, Object> 
+/**
+ * Nested data structure that mirrors the internal structure and contents
+ * of an object. An object map associates keys, corresponding to the names
+ * of member fields inside an object, to values, which can be arbitrary
+ * objects --including a nested object map.
+ * <p>
+ * An object that implements the {@link Buildable} interface provides a
+ * method called {@link Buildable#buildObject(ObjectMap) build()}, that
+ * can take such a map, and "fill" an empty instance of a given class with the
+ * specified contents. This object also provides a method called 
+ * {@link Buildable#getBuildCondition() getBuildCondition()}, that returns a
+ * {@link Condition} object.
+ * <p>
+ * The {@link ObjectBuilder} can also be used to build objects from an
+ * object map.
+ * 
+ * @author Sylvain Hallé
+ */
+public class ObjectMap extends HashMap<String,Object> 
 {
 	/**
 	 * Dummy UID

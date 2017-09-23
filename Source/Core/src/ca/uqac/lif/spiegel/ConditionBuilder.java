@@ -59,34 +59,34 @@ public class ConditionBuilder
 		else if (c instanceof And)
 		{
 			And new_c = new And();
-			for (Condition child : ((And) c).getConditions())
+			for (Condition child : ((And) c).getOperands())
 			{
 				Condition new_child = expandCondition(child);
 				if (new_child != null)
-					new_c.addCondition(expandCondition(child));
+					new_c.addOperand(expandCondition(child));
 			}
-			if (new_c.getConditions().isEmpty())
+			if (new_c.getOperands().isEmpty())
 				return null;
-			if (new_c.getConditions().size() == 1)
+			if (new_c.getOperands().size() == 1)
 			{
-				return new_c.getConditions().get(0);
+				return new_c.getOperands().get(0);
 			}
 			return new_c;
 		}
 		else if (c instanceof Or)
 		{
 			Or new_c = new Or();
-			for (Condition child : ((Or) c).getConditions())
+			for (Condition child : ((Or) c).getOperands())
 			{
 				Condition new_child = expandCondition(child);
 				if (new_child != null)
-					new_c.addCondition(expandCondition(child));
+					new_c.addOperand(expandCondition(child));
 			}
-			if (new_c.getConditions().isEmpty())
+			if (new_c.getOperands().isEmpty())
 				return null;
-			if (new_c.getConditions().size() == 1)
+			if (new_c.getOperands().size() == 1)
 			{
-				return new_c.getConditions().get(0);
+				return new_c.getOperands().get(0);
 			}
 			return new_c;
 		}

@@ -17,16 +17,42 @@
  */
 package ca.uqac.lif.spiegel;
 
+/**
+ * Condition that stipulates that an inner field of a given class
+ * must be created inside an object.
+ * @author Sylvain Hallé
+ */
 public class InnerFieldCondition extends Condition
 {
+	/**
+	 * The condition on the inner field
+	 */
 	protected Condition m_fieldCondition;
 	
+	/**
+	 * The name of the inner field
+	 */
 	protected String m_fieldName;
 	
+	/**
+	 * The class (or type) of the inner field
+	 */
 	protected Class<?> m_fieldClass;
 	
+	/**
+	 * The type condition associated to this condition. Since the
+	 * inner field is of a fixed type, the condition is necessarily
+	 * an {@link IsOfType} object. It is instantiated once, and
+	 * referred to upon every call to {@link #getTypeCondition()}.
+	 */
 	protected final transient IsOfType m_typeCondition;
 	
+	/**
+	 * Creates a new inner field condition.
+	 * @param name The name of the inner field
+	 * @param clazz The class (or type) of the inner field
+	 * @param condition The condition on the inner field
+	 */
 	public InnerFieldCondition(String name, Class<?> clazz, Condition condition)
 	{
 		super();

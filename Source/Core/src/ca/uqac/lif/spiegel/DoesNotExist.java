@@ -32,6 +32,10 @@ package ca.uqac.lif.spiegel;
  */
 public class DoesNotExist extends ArgumentCondition
 {
+	/**
+	 * Creates a new DNE condition for a given argument 
+	 * @param argument The name of the argument
+	 */
 	public DoesNotExist(String argument) 
 	{
 		super(argument);

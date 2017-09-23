@@ -28,11 +28,27 @@ import java.util.Collection;
  */
 public class IntegerValueInInterval extends ValueInSet
 {
+	/**
+	 * Creates a new condition.
+	 * @param argument The name of the member field on which the condition
+	 *   applies
+	 * @param min The minimum value for the field
+	 * @param max The minimum value for the field
+	 * @param step The increment step between min and max
+	 */
 	public IntegerValueInInterval(String argument, int min, int max, int step)
 	{
 		super(argument, createCollection(min, max, step));
 	}
 	
+	/**
+	 * Creates a collection of objects, corresponding to all the values in the
+	 * interval that this condition represents
+	 * @param min The minimum value for the field
+	 * @param max The minimum value for the field
+	 * @param step The increment step between min and max
+	 * @return A collection with all the values
+	 */
 	protected static Collection<Object> createCollection(int min, int max, int step)
 	{
 		Collection<Object> col = new ArrayList<Object>((max - min / step + 1));

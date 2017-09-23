@@ -24,6 +24,10 @@ package ca.uqac.lif.spiegel;
  */
 public class IsInteger extends IsOfType
 {
+	/**
+	 * Creates a new condition
+	 * @param argument The member field on which the condition applies
+	 */
 	public IsInteger(String argument)
 	{
 		super(argument, Integer.class);

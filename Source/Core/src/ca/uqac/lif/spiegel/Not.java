@@ -28,6 +28,10 @@ public class Not extends Condition
 	 */
 	protected Condition m_condition;
 	
+	/**
+	 * Creates a new negation
+	 * @param condition The condition to negate
+	 */
 	public Not(Condition condition)
 	{
 		super();

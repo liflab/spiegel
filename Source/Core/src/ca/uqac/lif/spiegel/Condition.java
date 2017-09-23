@@ -24,6 +24,9 @@ package ca.uqac.lif.spiegel;
  */
 public abstract class Condition
 {
+	/**
+	 * Empty constructor for a Condition object
+	 */
 	public Condition()
 	{
 		super();

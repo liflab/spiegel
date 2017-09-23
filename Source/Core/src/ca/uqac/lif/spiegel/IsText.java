@@ -24,6 +24,10 @@ package ca.uqac.lif.spiegel;
  */
 public class IsText extends IsOfType
 {
+	/**
+	 * Creates a new condition
+	 * @param argument The member field on which the condition applies
+	 */
 	public IsText(String argument)
 	{
 		super(argument, String.class);

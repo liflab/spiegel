@@ -47,6 +47,14 @@ public class DotConditionRenderer
 		return out.toString();
 	}
 	
+	/**
+	 * Renders a nested structure of conditions as a tree.
+	 * @param c The condition object corresponding to the current node
+	 *   in the tree being processed
+	 * @param parent_id The ID of the parent node to the current node
+	 *   in the tree
+	 * @return A string drawing a subtree in DOT format
+	 */
 	protected String toDot(Condition c, int parent_id)
 	{
 		StringBuilder out = new StringBuilder();
@@ -70,7 +78,7 @@ public class DotConditionRenderer
 			int and_id = m_idCounter++;
 			out.append(and_id).append(" [label=\"AND\"];\n");
 			out.append(parent_id).append(" -> ").append(and_id).append(";\n");
-			for (Condition in_c : a.getConditions())
+			for (Condition in_c : a.getOperands())
 			{
 				out.append(toDot(in_c, and_id));
 			}
@@ -81,7 +89,7 @@ public class DotConditionRenderer
 			int and_id = m_idCounter++;
 			out.append(and_id).append(" [label=\"OR\"];\n");
 			out.append(parent_id).append(" -> ").append(and_id).append(";\n");
-			for (Condition in_c : a.getConditions())
+			for (Condition in_c : a.getOperands())
 			{
 				out.append(toDot(in_c, and_id));
 			}

@@ -34,6 +34,9 @@ public class IndependentConditions extends Condition
 	 */
 	protected Map<String,Condition> m_conditions;
 	
+	/**
+	 * Creates a new empty set of conditions
+	 */
 	public IndependentConditions()
 	{
 		super();

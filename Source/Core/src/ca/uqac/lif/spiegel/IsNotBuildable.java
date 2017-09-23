@@ -32,6 +32,9 @@ public class IsNotBuildable extends Condition
 	 */
 	public static final transient IsNotBuildable instance = new IsNotBuildable();
 	
+	/**
+	 * Creates a new condition
+	 */
 	protected IsNotBuildable()
 	{
 		super();

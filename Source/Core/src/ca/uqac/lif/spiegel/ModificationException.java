@@ -28,11 +28,20 @@ public class ModificationException extends Exception
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Creates a new exception by wrapping an existing {@code Throwable}
+	 * object
+	 * @param t The object
+	 */
 	public ModificationException(Throwable t)
 	{
 		super(t);
 	}
 	
+	/**
+	 * Creates an exception by giving a textual message
+	 * @param message The message
+	 */
 	public ModificationException(String message)
 	{
 		super(message);

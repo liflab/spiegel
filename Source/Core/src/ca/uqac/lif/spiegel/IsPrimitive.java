@@ -30,6 +30,9 @@ public class IsPrimitive extends Condition
 	 */
 	public static final transient IsPrimitive instance = new IsPrimitive();
 	
+	/**
+	 * Creates a new condition
+	 */
 	protected IsPrimitive()
 	{
 		super();
